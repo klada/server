@@ -647,6 +647,15 @@ pipeline:
     when:
       matrix:
         TESTS: acceptance-ui
+  publish-s3:
+    image: plugins/s3
+    source: test/ui-regression/out/*
+    target: /prs/${DRONE_PULL_REQUEST}
+    bucket: nextcloud-ui-regression
+    region: eu-central-1
+    when:
+      matrix:
+        TESTS: acceptance-ui
 
 matrix:
   include:
