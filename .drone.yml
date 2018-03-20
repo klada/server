@@ -649,8 +649,8 @@ pipeline:
         TESTS: acceptance-ui
   publish-s3:
     image: plugins/s3
-    source: test/ui-regression/out/*
-    target: /prs/${DRONE_PULL_REQUEST}
+    source: tests/ui-regression/out/**/*
+    target: prs/${DRONE_PULL_REQUEST}
     bucket: nextcloud-ui-regression
     region: eu-central-1
     secrets: [ aws_access_key_id, aws_secret_access_key ]
