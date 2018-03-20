@@ -653,6 +653,7 @@ pipeline:
     target: /prs/${DRONE_PULL_REQUEST}
     bucket: nextcloud-ui-regression
     region: eu-central-1
+    secrets: [ aws_access_key_id, aws_secret_access_key ]
     when:
       matrix:
         TESTS: acceptance-ui
